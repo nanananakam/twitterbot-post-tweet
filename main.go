@@ -45,7 +45,7 @@ func main() {
 	anaconda.SetConsumerSecret(os.Getenv("TWITTER_CONSUMER_SECRET"))
 	twitterApi := anaconda.NewTwitterApi(os.Getenv("TWITTER_ACCESS_TOKEN"), os.Getenv("TWITTER_ACCESS_TOKEN_SECRET"))
 
-	if _, err := twitterApi.PostTweet("[新システムテスト] "+tweet, nil); err != nil {
+	if _, err := twitterApi.PostTweet(tweet, nil); err != nil {
 		panic(err)
 	}
 
