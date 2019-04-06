@@ -6,6 +6,9 @@ RUN apk -v --update add git gcc libc-dev && rm /var/cache/apk/* \
 
 FROM alpine:3.9
 
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+
 COPY run.sh /
 COPY --from=builder /main /
 RUN apk -v --update add \
