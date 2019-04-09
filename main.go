@@ -9,9 +9,8 @@ import (
 
 func main() {
 	type Words struct {
-		gorm.Model
-		Word1 string `gorm:"index;type:varchar(1024)"`
-		Word2 string `gorm:"type:varchar(1024)"`
+		Word1 string `gorm:"index;type:varchar(512)"`
+		Word2 string `gorm:"type:varchar(512)"`
 	}
 
 	db, err := gorm.Open("sqlite3", "words.db")
