@@ -65,14 +65,14 @@ func Main() {
 		for {
 			var words Words
 			db.Raw("SELECT * FROM words WHERE word1 = ? ORDER BY RANDOM() LIMIT 1", word).Scan(&words)
+			word = words.Word2
 			if word == "" {
 				break
 			}
-			word = words.Word2
 			tweet = tweet + word
 		}
 
-		if len(tweet) < 140 {
+		if len(tweet) < 140 && len(tweet) > 0 {
 			break
 		}
 	}
