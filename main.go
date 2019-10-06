@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/ChimeraCoder/anaconda"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
@@ -65,6 +66,7 @@ func Main() {
 		for {
 			var words Words
 			db.Raw("SELECT * FROM words WHERE word1 = ? ORDER BY RANDOM() LIMIT 1", word).Scan(&words)
+			fmt.Println(words.Word1, words.Word2)
 			word = words.Word2
 			if word == "" {
 				break
